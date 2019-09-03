@@ -1,0 +1,54 @@
+Compiled from "scanner.java"
+public class scanner {
+  public scanner();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: new           #2                  // class java/util/Scanner
+       3: dup
+       4: getstatic     #3                  // Field java/lang/System.in:Ljava/io/InputStream;
+       7: invokespecial #4                  // Method java/util/Scanner."<init>":(Ljava/io/InputStream;)V
+      10: astore        5
+      12: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      15: ldc           #6                  // String Please enter a whole number.
+      17: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      20: aload         5
+      22: invokevirtual #8                  // Method java/util/Scanner.nextInt:()I
+      25: istore_1
+      26: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      29: ldc           #9                  // String Please enter a decimal number.
+      31: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      34: aload         5
+      36: invokevirtual #10                 // Method java/util/Scanner.nextDouble:()D
+      39: dstore_2
+      40: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      43: ldc           #11                 // String Please enter a word.
+      45: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      48: aload         5
+      50: invokevirtual #12                 // Method java/util/Scanner.next:()Ljava/lang/String;
+      53: astore        4
+      55: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      58: iload_1
+      59: invokedynamic #13,  0             // InvokeDynamic #0:makeConcatWithConstants:(I)Ljava/lang/String;
+      64: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      67: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      70: dload_2
+      71: invokedynamic #14,  0             // InvokeDynamic #1:makeConcatWithConstants:(D)Ljava/lang/String;
+      76: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      79: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      82: aload         4
+      84: invokedynamic #15,  0             // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+      89: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      92: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      95: iload_1
+      96: i2d
+      97: dload_2
+      98: dmul
+      99: invokedynamic #16,  0             // InvokeDynamic #3:makeConcatWithConstants:(D)Ljava/lang/String;
+     104: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     107: return
+}
