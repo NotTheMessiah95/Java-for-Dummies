@@ -1,0 +1,39 @@
+Compiled from "HelloWorld.java"
+class HelloWorld {
+  HelloWorld();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #3                  // String Hello World
+       5: invokevirtual #4                  // Method java/io/PrintStream.print:(Ljava/lang/String;)V
+       8: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      11: ldc           #5                  // String This is a basic Java command!
+      13: invokevirtual #4                  // Method java/io/PrintStream.print:(Ljava/lang/String;)V
+      16: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      19: ldc           #6                  // String This command creates a new line
+      21: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      24: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      27: ldc           #8                  // String Notice that a new line has been taken!
+      29: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      32: ldc           #9                  // String This is an example of a variable.
+      34: astore_1
+      35: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      38: aload_1
+      39: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      42: ldc           #10                 // String This variable is declared and instantiated on one line
+      44: astore_2
+      45: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      48: aload_2
+      49: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      52: ldc           #11                 // String Java
+      54: astore_3
+      55: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      58: aload_3
+      59: invokedynamic #12,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+      64: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      67: return
