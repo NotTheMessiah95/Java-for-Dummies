@@ -1,0 +1,69 @@
+
+package whileloops;
+
+import java.util.Scanner;
+
+public class WhileLoops {
+
+    public static void main(String[] args) {
+        System.out.println("Please enter your exam results:  ");
+        Scanner scan1 = new Scanner(System.in);
+        int examResult= scan1.nextInt();
+        
+        while(examResult < 0 || examResult > 100)
+        {
+            System.out.println("You have entered an invalid exam result");
+            System.out.println("Please enter a valid exam result");
+            //Scanner scan2 = new Scanner(System.in);
+            examResult= scan1.nextInt();
+        }
+
+        System.out.println("Did you pass your coursework? (0 for fail, 1 for pass):   ");
+        Scanner scan3 = new Scanner(System.in);
+        int coursework = scan3.nextInt();
+        
+        while(coursework != 1|| coursework != 0)
+        {
+            System.out.println("You have entered an invalid value for your coursework pass");
+            System.out.println("Please enter a valid value");
+            //Scanner scan4 = new Scanner(System.in);
+            coursework = scan3.nextInt();
+        }
+        
+        if (examResult >= 50 && coursework == 1)
+        {
+            if (examResult >= 70)
+            {
+                System.out.println("You achieved an A grade");
+            }
+            else if(examResult >=60)
+            {
+                System.out.println("You achieved a B grade");
+            }
+            else if (examResult >=50)
+            {
+                System.out.println("You achieved a C grade");
+            }
+            else
+            {
+                System.out.println("You failed the exam");
+            }
+        }
+        else
+        {
+            if (examResult >=50 && coursework == 0)
+            {
+                System.out.println("You passed your exam, but fialed your coursework. You have failed the module");
+            }
+            else if (examResult < 50 && coursework == 1)
+            {
+                System.out.println("You have passed your coursework, but failed your exam. You have failed the module");
+            }
+            else
+            {
+                System.out.println("You have failed.");
+            }
+        }
+    }
+    
+}
