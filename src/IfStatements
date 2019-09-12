@@ -1,0 +1,80 @@
+package ifstatements;
+
+import java.util.Scanner;
+
+public class IfStatements {
+
+    public static void main(String[] args) {
+        
+        System.out.print("Please enter your exam result: ");
+        Scanner scan1 = new Scanner(System.in);
+        int examResult = scan1.nextInt();
+        
+        System.out.print("Did you pass your coursework? (0 for no, 1 for yes):  ");
+        Scanner scan2 = new Scanner(System.in);
+        int coursework = scan2.nextInt();
+        
+        //if(condition){ }
+        //  > Greater than  >= Greater or equal to
+        //  < Less than     <= Less than or equal to
+        //  == equal to     != not equal to
+        //  AND &&          OR ||
+        
+        
+        //The below if statement verifies that all data entered for the exam result and coursework value is valid to proceed
+        //Otherwise it moves to the final else statement
+        if(examResult >= 0 && examResult <= 100 && coursework >= 0 && coursework <= 1)
+        {
+            if(examResult >= 50 && coursework == 1) //this block used when both components are passed - prints grade depending on examResult
+            {
+                System.out.println("You have passed the exam and your coursework.");
+                if(examResult >= 70)
+                {
+                    System.out.println("Grade A");
+                }
+                else if(examResult >= 60)
+                {
+                    System.out.println("Grade B");
+                }
+                else
+                {
+                    System.out.println("Grade C");
+                }//endif
+            }
+            else if(examResult >=50 && coursework == 0)
+            {
+                System.out.println("You have passed the exam, but failed your coursework. You have failed the module");
+            }
+            else if(examResult <50 && coursework == 1)
+            {
+                System.out.println("You have failed the exam, but passed your coursework. You have failed the module.");
+            }
+            else
+            {
+                System.out.println("You have failed the exam and your coursework. You have failed the module.");
+            }//endif
+        }
+        //Below used when either variable is invalid - if statements used to display which input was invalid
+        else
+        {
+            System.out.println("Please only enter valid exam results or values for coursework.");
+            if(examResult > 100)
+            {
+                System.out.println("You have entered too high a number.");
+            }
+            else if(examResult < 0)
+            {
+                System.out.println("You have entered too low a number");                
+            }       
+            else if(coursework>1)
+            {
+                System.out.println("You have entered a number other than 0 or 1 for your coursework pass.");
+            }
+            else
+            {
+                System.out.println("You have entered a number other than 0 or 1 for your coursework pass.");
+            }//endif
+        }
+    }
+    
+}
