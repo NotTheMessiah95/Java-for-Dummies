@@ -1,0 +1,123 @@
+package mathsquiz2;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class MathsQuiz2 {
+    public static void main(String[] args) {       
+        int quizChoice = 0;       
+        while(quizChoice != 4)
+        {
+            System.out.println("Please Select From The Following:");
+            System.out.println("1. Addition Quiz");
+            System.out.println("2. Subtraction Quiz");
+            System.out.println("3. Multiplication Quiz");
+            System.out.println("4. Quit");
+
+            Scanner scan2 = new Scanner(System.in);
+            quizChoice = scan2.nextInt();
+
+            if(quizChoice == 1)
+                Addition();
+            else if(quizChoice == 2)
+                Subtraction();
+            else if(quizChoice == 3)
+                Multiplication();
+            else if(quizChoice == 4)
+            {
+                System.out.println("Goodbye!");
+            }
+            else
+            {
+                System.out.println("Invalid entry: 1 - 4 only please");
+            }
+        }
+    }
+    public static void Addition(){
+        for(int timesLooped = 1; timesLooped <= 5; timesLooped++)
+        {
+            Random rnd = new Random();
+
+            int number1 = rnd.nextInt(11);
+            int number2 = rnd.nextInt(11);
+
+            System.out.println("Solve: " + number1 + " + " + number2 + " = ? ");
+
+            Scanner scan1 = new Scanner(System.in);
+            int usersSolution = scan1.nextInt();
+
+            int correctSolution = number1 + number2;
+
+            if(usersSolution == correctSolution)
+            {
+                System.out.println("Correct!");
+            }
+            else
+            {
+                System.out.println("Incorrect");
+            }
+        }
+    }
+    public static void Subtraction(){
+        for(int timesLooped = 1; timesLooped <= 5; timesLooped++)
+        {
+            Random rnd = new Random();
+
+            int number1 = rnd.nextInt(11);
+            int number2 = rnd.nextInt(11);      //Never be bigger than number1
+
+            //while(number2 > number1)
+            //{
+                //number1 = rnd.nextInt(11);
+                //number2 = rnd.nextInt(11);
+            //}
+            if(number2 > number1)
+            {
+                int temp = number2;
+                number2 = number1;
+                number1 = temp;
+            }
+
+            System.out.println("Solve: " + number1 + " - " + number2 + " = ? ");
+
+            Scanner scan1 = new Scanner(System.in);
+            int usersSolution = scan1.nextInt();
+
+            int correctSolution = number1 - number2;
+
+            if(usersSolution == correctSolution)
+            {
+                System.out.println("Correct!");
+            }
+            else
+            {
+                System.out.println("Incorrect");
+            }
+        }            
+    }
+    public static void Multiplication(){
+        for(int timesLooped = 1; timesLooped <= 5; timesLooped++)
+        {
+            Random rnd = new Random();
+
+            int number1 = rnd.nextInt(11);
+            int number2 = rnd.nextInt(11);
+
+            System.out.println("Solve: " + number1 + " x " + number2 + " = ? ");
+
+            Scanner scan1 = new Scanner(System.in);
+            int usersSolution = scan1.nextInt();
+
+            int correctSolution = number1 * number2;
+
+            if(usersSolution == correctSolution)
+            {
+                System.out.println("Correct!");
+            }
+            else
+            {
+                System.out.println("Incorrect");
+            }
+        }          
+    }
+}
