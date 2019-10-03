@@ -1,0 +1,46 @@
+package parameterpassing;
+import java.util.Scanner;
+
+public class ParameterPassing 
+{
+    public static void main(String[] args) 
+    {
+        getName();
+    }
+    public static void getName() 
+    {
+        System.out.println("What is your name?");
+        Scanner scan1=new Scanner(System.in);
+        String name = scan1.nextLine();
+        System.out.println("Hello, "+name+"!");
+        getAge(name);
+    }
+    public static void getAge(String name)
+    {
+        System.out.println(name +", how old are you?");
+        Scanner scan2=new Scanner(System.in);
+        int age = scan2.nextInt();
+        System.out.println("You are " + age + " years old");
+        changeAgeFormat(name,age);
+        getTown(name,age);
+    }
+    public static void getTown(String name,int age) 
+    {
+        Scanner scan3= new Scanner(System.in);
+        System.out.println(name +", what town are you from?");
+        String town = scan3.nextLine();
+        System.out.println("You are from "+town+", "+name);
+        goodbye(name,age);
+    }
+    public static void changeAgeFormat (String name,int age)
+    {
+        //calculate how old the user of the system is in months & display
+        //do the same in weeks
+        //do this after getAge, but before getTown
+        System.out.println("You are "+age*12+" months old.");
+        System.out.println("You are "+age*52+" weeks old.");
+    }
+    public static void goodbye(String name,int age){
+        System.out.println("Goodbye, "+age+" year-old "+name);
+    }
+}
