@@ -1,0 +1,25 @@
+package inbuiltfunctions;
+import java.util.Scanner;
+
+public class InbuiltFunctions
+{
+    public static void main(String[] args)
+    {
+        System.out.println("Enter the names of two animals, separated by a comma.");
+        Scanner scan1 = new Scanner(System.in);
+        String animals = scan1.nextLine();
+        
+        int commaPosition = animals.indexOf(",");
+        System.out.println("Comma is at position "+ commaPosition);
+
+        String animal1 = animals.substring(0, commaPosition); //commaPosition-1 is automatically done by function, which eliminates comma
+        System.out.println("Animal 1 = "+animal1);
+        String animal2 = animals.substring(commaPosition + 1);
+        System.out.println("Animal 2 = "+animal2);
+        
+        String letter1 = animals.substring(0,1);
+        System.out.println("First letter of animal 1: "+letter1);
+        String letter2 = animals.substring(commaPosition + 1, commaPosition + 2);
+        System.out.println("First letter of animal 2: "+letter2);
+    }
+}
