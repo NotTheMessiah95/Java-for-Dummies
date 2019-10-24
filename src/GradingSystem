@@ -31,6 +31,7 @@ public class GradingSystem extends javax.swing.JFrame {
         txtResult = new javax.swing.JTextField();
         btnSubmit = new javax.swing.JButton();
         lblOutput = new javax.swing.JLabel();
+        btnReset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,23 +44,33 @@ public class GradingSystem extends javax.swing.JFrame {
             }
         });
 
-        lblOutput.setText("jLabel2");
+        btnReset.setText("Check New Result");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(83, 83, 83)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSubmit)
-                            .addComponent(txtResult, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(72, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnSubmit, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+                            .addComponent(txtResult)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(lblOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(btnReset)))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -68,11 +79,13 @@ public class GradingSystem extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSubmit)
-                .addGap(58, 58, 58)
-                .addComponent(lblOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addGap(1, 1, 1)
+                .addComponent(lblOutput, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnReset)
+                .addContainerGap())
         );
 
         pack();
@@ -80,17 +93,41 @@ public class GradingSystem extends javax.swing.JFrame {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {                                          
         lblOutput.setText("");
+
         int result = Integer.parseInt(txtResult.getText());
-        if(result >=70)
-            lblOutput.setText("You achieved an A grade!");
-        else if(result >= 60)
-            lblOutput.setText("You achieved a B grade!");
-        else if(result >=50)
-            lblOutput.setText("You achieved a C grade!");
+        if(result>=0 & result<=100)
+        {    
+            if(result >=70)
+            {
+                lblOutput.setText("You achieved an A grade!");
+            }
+            else if(result >= 60)
+            {
+                lblOutput.setText("You achieved a B grade!");
+            }
+            else if(result >=50)
+            {
+                lblOutput.setText("You achieved a C grade!");
+            }
+            else
+            {
+                lblOutput.setText("You failed the exam :(");
+            }
+            btnSubmit.setEnabled(false);
+        }
         else
-            lblOutput.setText("You failed the exam :(");
-        txtResult.setText("");
+        {
+            lblOutput.setText("You have entered an invalid result.");
+            txtResult.setText("");
+        }
     }                                         
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        btnSubmit.setEnabled(true);
+        lblOutput.setText("");
+        txtResult.setText("");
+    }                                        
 
     /**
      * @param args the command line arguments
@@ -128,6 +165,7 @@ public class GradingSystem extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
+    private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblOutput;
