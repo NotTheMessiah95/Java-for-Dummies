@@ -1,0 +1,268 @@
+package commentingsystem;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
+
+public class PageOne extends javax.swing.JFrame {
+
+    List<String> allComments = new ArrayList();
+    
+    public PageOne() {
+        initComponents();
+        readFromTextFile();
+        btnLogout.setVisible(false);
+        
+        String displayComments = "<html>"; //starts string with html tag to close later; used in line breaks; used to display list in below loop
+        for(String oneComment : allComments) //adds new temp variable oneComment to iterate through allComments list: stores list to display
+        {
+            displayComments = displayComments+oneComment; //sets displayComments to include the previous content ie html line break to add to existing string in list
+            lblOutput.setText(displayComments); //
+        }
+        lblOutput.setText(lblOutput.getText()+"</html"); //closes HTML tags
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        txtUsername = new javax.swing.JTextField();
+        lblUsername = new javax.swing.JLabel();
+        btnSubmit = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        txtComment = new javax.swing.JTextField();
+        lblOutput = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        btnLogin = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("H:\\Java\\Projects\\CommentingSystem\\agooddog.jpg")); // NOI18N
+
+        lblUsername.setText("Username:");
+
+        btnSubmit.setText("Submit!");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Comment:");
+
+        jLabel4.setText("Email:");
+
+        btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
+
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnLogin)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnLogout)))
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblUsername)
+                                    .addComponent(jLabel3))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtUsername)
+                                    .addComponent(txtComment, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)))
+                            .addComponent(jLabel1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(352, 352, 352)
+                        .addComponent(btnSubmit)))
+                .addContainerGap(107, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(211, 211, 211))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUsername)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtComment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLogin)
+                    .addComponent(btnLogout))
+                .addGap(18, 18, 18)
+                .addComponent(btnSubmit)
+                .addGap(18, 18, 18)
+                .addComponent(lblOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>                        
+
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        String username = txtUsername.getText();
+        String comment = txtComment.getText();
+        
+        String output = username + " said: " + comment;
+        
+        allComments.add(output + "<br>");
+        
+        String displayComments = "<html>"; //starts string with html tag to close later; used in line breaks; used to display list in below loop
+        for(String oneComment : allComments) //adds new temp variable oneComment to iterate through allComments list: stores list to display
+        {
+            displayComments = displayComments+oneComment; //sets displayComments to include the previous content ie html line break to add to existing string in list
+            lblOutput.setText(displayComments); //
+        }
+        lblOutput.setText(lblOutput.getText()+"</html"); //closes HTML tags
+        writeToTextFile();
+        txtComment.setText("");
+    }                                         
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        String email = txtEmail.getText();
+        txtUsername.setText(email);
+        txtUsername.setEnabled(false);
+        
+        txtEmail.setEnabled(false);
+        btnLogin.setVisible(false);
+        btnLogout.setVisible(true);
+    }                                        
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        btnLogin.setVisible(true);
+        txtUsername.setText("");
+        txtUsername.setEnabled(true);
+        String email = "";
+        txtEmail.setEnabled(true);
+        txtEmail.setText("");
+        btnLogout.setVisible(false);
+    }                                         
+    
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(PageOne.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(PageOne.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(PageOne.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(PageOne.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new PageOne().setVisible(true);
+            }
+        });
+    }
+
+    public void writeToTextFile()
+    {
+        try
+        {
+            FileWriter filewriter = new FileWriter("Comments.txt");
+            BufferedWriter bufferwriter = new BufferedWriter(filewriter);
+            
+            for(String oneComment : allComments)
+            {
+                bufferwriter.write(oneComment);
+                bufferwriter.newLine();
+            }
+            bufferwriter.close();
+        }
+        catch(Exception ex)
+        {
+        }
+    }
+    
+    public void readFromTextFile()
+    {
+        try
+            {
+                FileReader filereader = new FileReader("Comments.txt");
+                BufferedReader bufferedreader = new BufferedReader(filereader);
+
+                String inputLine;
+
+                while ((inputLine = bufferedreader.readLine())!= null)
+                {
+                    allComments.add(inputLine);
+                }
+            }
+        catch(Exception ex)
+            {
+            }
+    }
+
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnSubmit;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lblOutput;
+    private javax.swing.JLabel lblUsername;
+    private javax.swing.JTextField txtComment;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtUsername;
+    // End of variables declaration                   
+}
