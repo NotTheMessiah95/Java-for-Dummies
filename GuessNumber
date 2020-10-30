@@ -1,4 +1,3 @@
-'''java
 package com.company;
 
 import java.util.Random;
@@ -34,4 +33,3 @@ public class GuessNumber {
         System.out.println("Congratulations, you guessed " + guessNumber + " correctly!");
     }
 }
-'''
