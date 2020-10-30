@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class GuessNumber {
 
     public static void main(String[] args) {
-        // write your code here
         Random integer = new Random();
         int guessNumber = integer.nextInt(11);
 
